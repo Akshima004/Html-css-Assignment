@@ -1,0 +1,19 @@
+h1{
+    color:green;
+}
+p{
+    color: orangered;
+    text-align: center;
+}
+.design{
+padding-bottom: 4px;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-top: 4px;
+    margin-bottom: 4px;
+    margin-left: 4px;
+    margin-right: 4px;
+    margin-top: 4PX;
+    max-width: 60px;
+    border:10px solid green;
+}

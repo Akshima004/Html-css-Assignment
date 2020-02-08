@@ -1,0 +1,49 @@
+<html>
+<head>
+    <title>Donation Form</title>
+     <link rel="stylesheet" type="text/css" href="styles.css">
+    <script type="text/javascript" src="scripts.js"></script></head>
+<body>
+      <form onsubmit="return validation()">
+    <header>
+    <img src="responsive-charity-donation-form%20img.png" width="100px" height="100px">
+        <span><h1>Charity Donation Form</h1></span>
+     </header>
+  
+  <div>
+      
+      <b>Full Name</b><br><input type="text" id="fname">
+      <input type="text" id="lname">
+      </div>
+      <div class="space">
+           FirstName<label>Lastname</label>
+          </div>
+          <div>
+          <b>Email</b><input type="email" id="email" placeholder="ex:myname@example.com">
+          </div>
+          <div>
+          <b>Phone No</b><br>
+              <input type="tel" pattern="[0-9]{6}" placeholder="Contains 6 digits" id="areacode"> <input type="tel"  pattern="^\d{4}-\d{3}-\d{3}$" placeholder="xxxx-xxx-xxx" id="pno">
+                     
+          </div>
+         <div class="space">
+           Areacode<label>Phone no</label>
+          </div>
+          <div>
+         <b>Amount</b><br><input type="text" id="amount"><b>USD</b>
+          </div>
+          <div class="space">
+          Charity Donation
+          </div>
+          <div>
+          <b>Message</b><br>
+              <textarea rows="4" cols="50" >
+              </textarea>
+          </div>
+          <div>
+          <input type="submit" name="Submit" value="submit">
+          </div>
+          
+    </form>
+    </body>
+</html>

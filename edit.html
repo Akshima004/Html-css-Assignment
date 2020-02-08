@@ -1,0 +1,63 @@
+<html>
+
+<head>
+    <title>EditMenu</title>
+    <link rel="stylesheet" type="text/css" href="menu.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="script.js"></script>
+    </head>
+    <form name="myform" method="post" action="" onsubmit="return validateform()" > 
+    <nav>
+    <header>
+    truYum <i class="fa fa-cutlery" aria-hidden="true"></i> 
+        <a href="https://www.foodpanda.com/"><span>Menu</span></a></header>
+    </nav>
+    <div class="space">
+    
+<h1>
+    Edit Menu Item</h1>
+    
+    </div>
+  
+    <div class="head">
+    <h4>Name</h4>
+    <input type="text" name="name"id="name" style="width: 700px"><br>
+    </div>
+    
+    <table class="tablespace">
+  <tr>
+        <th><label>Price(Rs.)</label></th>
+        
+      <th><label>Active</label></th>
+        
+        <th>Date Of Launch</th>
+      <th>Category</th>
+            </tr>
+            
+            <td><input type="text" name="price" id="price"></td>
+        <td><input type="radio" name="active" checked>Yes
+            <input type="radio" name="active">No
+        </td>
+        <!--<td><input type="number" name=""placeholder="dd/mm/yyyy" required></td>-->
+        <td><input type="date" data-date="" data-date-format="DD MMMM YYYY" value="2020-01-10">
+</td>
+        <td>
+            <select>
+  <option value="Main Course">Main Course</option>
+  <option value="Starters">Starters</option>
+  <option value="Dessert">Dessert</option>
+  <option value="Drinks">Drinks</option>
+</select>
+        
+        </td>
+        <tr>
+        
+        <th><input type="checkbox" name="" checked>Free Delivery</th></tr>
+        </table><br>
+    
+    <input type="submit" value="Save" id="btn">
+
+     <footer>
+    @Copyright 2019</footer>
+    </form>
+</html>

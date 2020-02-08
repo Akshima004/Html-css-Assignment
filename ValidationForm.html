@@ -1,0 +1,28 @@
+<html>
+<head>
+    <title>Form</title>
+    <link rel="stylesheet" type="text/css" href="validationForm.css">
+    <script type="text/javascript" src="validationForm.js"></script>
+    </head>
+<body>
+    <h1>Simple Form</h1>
+    <form onsubmit="return validation()">
+  
+        FirstName<input type="text" id="fname" placeholder="Firstname">
+        
+      LastName <input type="text" id="lname" placeholder="Lastname">
+        
+        Email<input type="email" id="email" placeholder="Email">
+        Password<input type="password" id="pswd" placeholder="Password"> 
+        Confirm Password<input type="password" id="pswd1" placeholder="Confirm Password"> 
+        
+        <div>
+        <input type="radio" name="gender" checked><label>Male</label>
+            <input type="radio" name="gender"><label>Female</label>
+        </div>
+        
+        <input type="submit" name="Submit" value="submit">
+        
+    </form>
+    
+    </body></html>

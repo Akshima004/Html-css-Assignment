@@ -1,0 +1,101 @@
+create database loanSchema;
+use loanSchema;
+
+create table account_master(
+    -> account_number varchar(6),
+    -> customer_number varchar(6),
+    -> branch_id varchar(6),
+    -> opening_balance int(7),
+    -> account_opening_date Date,
+    -> account_type varchar(10),
+    -> account_status varchar(10));
+ alter table account_master add primary key(account_number);
+insert into account_master(account_number,customer_number,branch_id,opening_balance,account_opening_date,account_type,account_status)
+values('9900','2','101','100',2016-07-10,'saving','active');
+insert into account_master(account_number,customer_number,branch_id,opening_balance,account_opening_date,account_type,account_status)
+values('9923','2','103','100','2015-04-10','saving','active');
+insert into account_master(account_number,customer_number,branch_id,opening_balance,account_opening_date,account_type,account_status)
+values('9947','3','101','500','2018-02-12','saving','terminated');
+
+
+
+create table customer_master(
+    -> customer_number varchar(6),
+    -> firstname varchar(30),
+    -> middlename varchar(30),
+    -> lastname varchar(30),
+    -> cuatomer_city varchar(15),
+    -> customer_contact_no varchar(10),
+    -> occupation varchar(20),
+    -> customer_date_of_birth Date);
+
+ alter table customer_master add primary key(customer_number);
+insert into customer_master(customer_number,firstname,middlename,lastname,cuatomer_city ,customer_contact_no,occupation,customer_date_of_birth)
+values('1','Akshima','gupta','mahajan','jammu','8773332221','Analyst','1997-09-04');
+insert into customer_master(customer_number,firstname,middlename,lastname,cuatomer_city ,customer_contact_no,occupation,customer_date_of_birth)
+values('2','Kanika','','chauhan','delhi','8776556521','Student','1997-010-20');
+insert into customer_master(customer_number,firstname,middlename,lastname,cuatomer_city ,customer_contact_no,occupation,customer_date_of_birth)
+values('3','Vanya','sharma','tripathi','udhmapur','9836556521','doctor','1993-11-20');
+insert into customer_master(customer_number,firstname,middlename,lastname,cuatomer_city ,customer_contact_no,occupation,customer_date_of_birth)
+values('4','Achyut','gupta','mahajan','pune','9345556521','manager','1991-03-10');
+
+create table transaction_details(
+    -> transaction_number varchar(6),
+    -> account_number varchar(6),
+    -> date_of_transaction Date,
+    -> medium_of_transaction varchar(20),
+    -> transaction_type varchar(20),
+    -> transaction_amount int(7));
+alter table transaction_details add primary key(transaction_number);
+insert into transaction_details(transaction_number,account_number,date_of_transaction,medium_of_transaction,transaction_type,transaction_amount)
+values('1234','9900','2019-03-09','Atm','withdraw',2000);
+ insert into transaction_details(transaction_number,account_number,date_of_transaction,medium_of_transaction,transaction_type,transaction_amount)
+values('1234','9923','2019-07-03','Atm','deposit',4000);
+ insert into transaction_details(transaction_number,account_number,date_of_transaction,medium_of_transaction,transaction_type,transaction_amount)
+values('1238','9923','2019-07-03','Atm','deposit',4000);
+ insert into transaction_details(transaction_number,account_number,date_of_transaction,medium_of_transaction,transaction_type,transaction_amount)
+values('1249','9947','2020-01-12','online','withdraw',1000);
+
+
+create table loan_details(
+    -> customer_number varchar(6),
+    -> branch_id varchar(6),
+    -> loan_amount int(7));
+alter table loan_details add  primary key(customer_number,branch_id);
+
+
+
+mysql> insert into loan_details(customer_number,branch_id,loan_amount)values('2','102',4000);
+Query OK, 1 row affected (0.08 sec)
+
+mysql> insert into loan_details(customer_number,branch_id,loan_amount)values('3','102',4000);
+
+create table branch_master(
+    -> branch_id varchar(6),
+    -> branch_name varchar(30),
+    -> branch_city varchar(30));
+alter table branch_master add primary key(branch_id);
+insert into branch_master(branch_id,branch_name,branch_city)values('101','hdfc','noida');
+insert into branch_master(branch_id,branch_name,branch_city)values('102','hdfc','pune');
+insert into branch_master(branch_id,branch_name,branch_city)values('103','pnb','jammu');
+insert into branch_master(branch_id,branch_name,branch_city)values('104','pnb','delhi');
+
+ques 1 query:
+select a.customer_number,a.firstname,am.account_number from customer_master a 
+inner join account_master am on a.customer_number=am.customer_number where account_status='terminated' order by a.customer_number,am.account_number;
+
+ques 2 query:
+select branch_master.branch_city,count(account_master.account_number) 
+from branch_master left join account_master on account_master.branch_id=branch_master.branch_id group by branch_master.branch_city order by branch_city;
+
+ques 3 query:
+select a.customer_number,a.firstname,a.lastname from customer_master a 
+inner join loan_details b on a.customer_number =b.customer_number group by a.customer_number having count(branch_id)>1 order by a.customer_number;
+
+ques 4 query:
+select count(cm.customer_number) as count from customer_master cm inner join loan_details ld on cm.customer_number=ld.customer_number where cm.customer_number
+ not in(select customer_number from account_master);
+
+ques 5 query:
+select firstname,cuatomer_city,account_number from customer_master cm inner join account_master am on cm.customer_number=am.customer_number where 
+occupation !='service' and occupation!='student' and occupation!='business' order by firstname,account_number;

@@ -1,0 +1,18 @@
+.design{
+    background-color: lightblue;
+    height: 50px;
+    padding: 10px;
+}
+#body{
+    height: 450px;
+    background-color: gray;
+    padding: 10px;
+    color: white;
+    
+}
+#footer{
+    height: 50px;
+    background-color: black;
+    color: white;
+    padding: 10px;
+}

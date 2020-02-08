@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+
+
+<p><button onclick="change_text()">Click Me</button></p>
+
+<div id="myDIV">Hello!</div>
+
+<script>
+function change_text() {
+  var x = document.getElementById("myDIV");
+  if (x.innerHTML === "Hello!") {
+    x.innerHTML = "Well done!";
+  } else {
+    x.innerHTML = "Hello!";
+  }
+}
+</script>
+
+</body>
+</html>
+
